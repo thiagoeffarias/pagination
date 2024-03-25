@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id ("kotlin-kapt")
     alias(libs.plugins.hilt)
+    id ("kotlin-kapt")
 }
 
 android {
@@ -49,6 +49,10 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
@@ -77,12 +81,11 @@ dependencies {
     implementation(libs.coilCompose)
     implementation(libs.lifecycleRuntimeCompose)
     implementation(libs.lifecycleViewModelCompose)
-    implementation(libs.hiltCompiler)
     implementation(libs.hiltNavigationCompose)
     implementation(libs.pagingRuntime)
     implementation(libs.pagingCompose)
     implementation(libs.okhttpLoggingInterceptor)
     implementation(libs.roomKtx)
-    implementation(libs.roomCompiler)
+    //implementation(libs.roomCompiler)
     implementation(libs.roomPaging)
 }
